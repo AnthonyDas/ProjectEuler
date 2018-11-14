@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ProjectEuler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\MathsHelper\base_helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\card.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\combinatorics_helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\fibonacci_helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\fraction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\grid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\letter_count_helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\number_helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\palindrome_helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\pan_digit_helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\permutation_helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\poker_hand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\prime_helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\random_helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\shape_number.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\string_int.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Q001Q010.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Q011Q020.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Q021Q030.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Q031Q040.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Q041Q050.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Q051Q060.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Q061Q070.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Q071Q080.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Q081Q090.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Q091Q100.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Q141Q150.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Q201Q210.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Q171Q180.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\sqrt_cont_frac.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\triple.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Q381Q390.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Q111Q120.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Q241Q250.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Q401Q410.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Q491Q500.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\magic_five_gon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\roman_numeral_helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\su_doku.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Q121Q130.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\ifstream_with_path.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Q101Q110.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Q181Q190.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\harshad_helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\factorial_helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\factors_helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Q211Q220.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\wall_tile_helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Q501Q510.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Q231Q240.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\triangle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Q151Q160.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\right_angle_triangle_helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\greatest_common_divisor_helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\normal_distribution_helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\number_to_words_helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\string_helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\vector_int.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\monopoly_board.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\dice_helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\date.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\darts_helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Q351Q360.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
