@@ -70,7 +70,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\AnthonyDas\Documents\Visual Studio 2017\Projects\MathsHelper;C:\Users\AnthonyDas\Documents\Visual Studio 2017\Projects\Common;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\AnthonyDas\Documents\GitHub\MathsHelper;C:\Users\AnthonyDas\Documents\GitHub\Common;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
