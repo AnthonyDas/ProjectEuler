@@ -63,14 +63,13 @@ void runProblem(std::string problemId, const T &actual, const T &expected) {
 
 
 int main() {
-	// standard_out_and_file_log_policy policy("C:\\Users\\Anthony C J Das\\Documents\\Visual Studio 2017\\Projects\\ProjectEuler\\ProjectEuler\\ProjectEuler.log");
-	standard_out_and_file_log_policy policy("C:\\Users\\AnthonyDas\\Documents\\Visual Studio 2017\\Projects\\ProjectEuler\\ProjectEuler\\ProjectEuler.log");
+	// standard_out_logger::create();
 
-	logger log(policy);
-
-	// prime_helper::generate_primes_output_to_file(100000000LL);
+	// standard_out_and_file_logger::create("C:\\Users\\Anthony C J Das\\Documents\\Visual Studio 2017\\Projects\\ProjectEuler\\ProjectEuler\\ProjectEuler.log");
+	standard_out_and_file_logger::create("C:\\Users\\AnthonyDas\\Documents\\GitHub\\ProjectEuler\\ProjectEuler\\ProjectEuler.log");
 
 
+	runProblem("1", q1(), 233168);
 	/*
 	runProblem("1", q1(), 233168);
 	runProblem("1 quick", q1_quick(), 233168);
