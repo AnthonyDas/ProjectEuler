@@ -261,7 +261,7 @@ int q16() {
 	// of 2 (max e = 2^11 = 2048) after which the power of 2 is calculated as (e - 1023) 
 	// = 1025. As 1000 < 1025, we can simply use the double data type for the calculation.
 
-	double n = 1000.0;
+	const double n = 1000.0;
 
 	double result = exp2(n);
 
@@ -270,13 +270,16 @@ int q16() {
 	// x.log2(10) = n.log2(2) = n
 	// x = n / log2(10).
 	// But note that 10^1 is actually a 2 digit number.
-	int len = (int)(floor(n / log2(10)) + 1);
+	const int len = (int)(floor(n / log2(10)) + 1);
 
 	// Allocate digit string buffer.
 	char *result_str = new char[len + 1]; // + 1 for termination char \0
 
 	// Buffer the result into the char array.
 	// On failure a negative int is returned.
+	// sprintf: On success, the total number of characters written is returned not
+	// including the additional null-character automatically appended. On failure,
+	// a negative number is returned.
 	if (sprintf(result_str, "%.0f", result) < 0) { // ".0" = no decimals, "f" = float
 		throw std::runtime_error("Error writing to digit string");
 	}

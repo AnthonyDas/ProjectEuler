@@ -209,5 +209,11 @@
     <ClInclude Include="Q351Q360.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Common\heap_sort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MathsHelper\graph_helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
