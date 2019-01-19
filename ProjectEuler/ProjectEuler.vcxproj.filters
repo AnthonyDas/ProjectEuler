@@ -212,7 +212,7 @@
     <ClInclude Include="..\..\Common\heap_sort.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\MathsHelper\graph_helper.h">
+    <ClInclude Include="..\..\MathsHelper\graph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -123,6 +123,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Common\date.h" />
+    <ClInclude Include="..\..\Common\heap_sort.h" />
     <ClInclude Include="..\..\Common\ifstream_with_path.h" />
     <ClInclude Include="..\..\MathsHelper\base_helper.h" />
     <ClInclude Include="..\..\MathsHelper\card.h" />
@@ -133,6 +134,7 @@
     <ClInclude Include="..\..\MathsHelper\factors_helper.h" />
     <ClInclude Include="..\..\MathsHelper\fibonacci_helper.h" />
     <ClInclude Include="..\..\MathsHelper\fraction.h" />
+    <ClInclude Include="..\..\MathsHelper\graph.h" />
     <ClInclude Include="..\..\MathsHelper\greatest_common_divisor_helper.h" />
     <ClInclude Include="..\..\MathsHelper\grid.h" />
     <ClInclude Include="..\..\MathsHelper\harshad_helper.h" />

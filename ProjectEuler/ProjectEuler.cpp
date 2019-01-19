@@ -4,8 +4,6 @@
 #include "logger.h"
 #include "prime_helper.h"
 
-#include "string_helper.h"
-
 #include "Q001Q010.h"
 #include "Q011Q020.h" 
 #include "Q021Q030.h" 
@@ -68,8 +66,6 @@ int main() {
 	// standard_out_and_file_logger::create("C:\\Users\\Anthony C J Das\\Documents\\Visual Studio 2017\\Projects\\ProjectEuler\\ProjectEuler\\ProjectEuler.log");
 	standard_out_and_file_logger::create("C:\\Users\\AnthonyDas\\Documents\\GitHub\\ProjectEuler\\ProjectEuler\\ProjectEuler.log");
 
-
-	runProblem("1", q1(), 233168);
 	/*
 	runProblem("1", q1(), 233168);
 	runProblem("1 quick", q1_quick(), 233168);

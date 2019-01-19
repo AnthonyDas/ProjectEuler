@@ -394,11 +394,9 @@ long long int q58() {
 
 		long long int next_sav = next; // Overflow test
 
-		const long long int max = sqrt(next + (4 * step)); // sqrt() will give floor
-
 		for (int i = 0; i < 4; ++i) { // Each of the 4 diagonal entries
 			next += step;
-			if (prime_helper::is_prime(next, max)) {
+			if (prime_helper::is_prime(next)) {
 				++prime_count;
 			}
 		}

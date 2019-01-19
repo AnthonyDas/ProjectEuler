@@ -69,17 +69,13 @@ long long int q3() {
 		}
 	}
 
-	long long int max = (long long int)sqrt(n); // sqrt(n) will give floor
-
-	for (long long int i = 3; i <= max; i += 2) {
+	for (long long int i = 3; i*i <= n; i += 2) {
 		if (n % i == 0) {
 			last_prime_factor = i;
 			n /= i;
 			while (n % i == 0) {
 				n /= i;
 			}
-
-			max = (long long int)sqrt(n); // sqrt(n) will give floor
 		}
 	}
 
@@ -121,14 +117,14 @@ int q4() {
 // 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
 // What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 long long int q5() {
-	int n = 20, limit = (int)sqrt(n); // sqrt(n) will give floor;
+	int n = 20;
 
 	long long int N = 1;
 
 	for (int i = 2; i <= n; ++i) {
 		if (prime_helper::is_prime(i)) {
 			// If i is greater that sqrt(n) then power of i must be 1
-			if (i <= limit) {
+			if (i*i <= n) {
 				N *= (long long int)pow(i, floor(log(n) / log(i)));
 			}
 			else {
