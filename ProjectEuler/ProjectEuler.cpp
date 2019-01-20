@@ -66,6 +66,10 @@ int main() {
 	// standard_out_and_file_logger::create("C:\\Users\\Anthony C J Das\\Documents\\Visual Studio 2017\\Projects\\ProjectEuler\\ProjectEuler\\ProjectEuler.log");
 	standard_out_and_file_logger::create("C:\\Users\\AnthonyDas\\Documents\\GitHub\\ProjectEuler\\ProjectEuler\\ProjectEuler.log");
 
+	runProblem("81", q81(), 427337);
+	runProblem("82", q82(), 260324);
+	runProblem("83", q83(), 425185);
+
 	/*
 	runProblem("1", q1(), 233168);
 	runProblem("1 quick", q1_quick(), 233168);
@@ -161,6 +165,7 @@ int main() {
 
 	runProblem("81", q81(), 427337); 
 	runProblem("82", q82(), 260324);
+	runProblem("83", q83(), 425185);
 	runProblem("84", q84(), std::string("101524")); // Still need to implement rolling three doubles
 	runProblem("85", q85(), 2772);
 
@@ -180,6 +185,8 @@ int main() {
 
 	runProblem("102", q102(), 228);
 	runProblem("104", q104(), 329468);
+
+	runProblem("107", q107(), 259679);
 
 	runProblem("109", q109(), 38182);
 	

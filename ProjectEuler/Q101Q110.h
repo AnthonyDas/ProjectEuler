@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <unordered_set>
 
 #include "pan_digit_helper.h"
 #include "ifstream_with_path.h"
@@ -77,6 +78,91 @@ int q104() {
 
 	return n; // 329468
 }
+
+/* The following undirected network consists of seven vertices and twelve
+edges with a total weight of 243.
+
+The same network can be represented by the matrix below.
+
+		A	B	C	D	E	F	G
+A	-	16	12	21	-	-	-
+B	16	-	-	17	20	-	-
+C	12	-	-	28	-	31	-
+D	21	17	28	-	18	19	23
+E	-	20	-	18	-	-	11
+F	-	-	31	19	-	-	27
+G	-	-	-	23	11	27	-
+
+However, it is possible to optimise the network by removing some edges and
+still ensure that all points on the network remain connected. The network
+which achieves the maximum saving is shown below. It has a weight of 93,
+representing a saving of 243 - 93 = 150 from the original network.
+
+Using network.txt, a 6K text file containing a network with forty vertices,
+and given in matrix form, find the maximum saving which can be achieved by
+removing redundant edges whilst ensuring that the network remains connected. */
+int q107() {
+	const int size = 40;
+	int	edge_count = 0, row = 0, col = 0, weight;
+
+	std::vector<std::tuple<int, int, int> > edges;
+
+	ifstream_with_path fin("Problem107.txt");
+	while (fin >> weight) {
+		// Edges have non-zero weight in the matrix and don't doulbe count edges.
+		// E.g. Matrix[i][j] is the same as Matrix[j][i]
+		if (weight && row <= col) {
+			edges.push_back(std::make_tuple(row, col, weight)); // node1, node2, weight
+		}
+		++col;
+		if (col == size) {
+			++row;
+			col = 0;
+		}
+	}
+	fin.close();
+
+	// Sort by weight ascending
+	std::sort(edges.begin(), edges.end(), [](const std::tuple<int, int, int> &a, const std::tuple<int, int, int> &b) {
+		return std::get<2>(a) < std::get<2>(b);}
+	);
+
+	int weight_saved = 0;
+
+	// To begin with, every node belongs to a (disjoint) set containing just itself
+	std::vector<int> node_set_id(size); // Vector indicating which set a node belongs to
+	std::vector<std::unordered_set<int> > node_sets(size); // Vector of node sets
+	for (int i = 0; i < size; ++i) {
+		node_set_id[i] = i;
+		node_sets[i].insert(i);
+	}
+
+	// Now start adding in the edges, connecting up the (disjoint) sets.
+	// Ultimately, we want all the nodes to be in a single set, (i.e. network is connected).
+	for (auto &e : edges) {
+		const int node1 = std::get<0>(e);
+		const int node2 = std::get<1>(e);
+		
+		// Exclude edges if the two nodes it connects already live in the same set.
+		if (node_set_id[node1] == node_set_id[node2]) {
+			weight_saved += std::get<2>(e);
+		}
+		// Otherwise, the edge connects up two disjoint sets. Merge the sets.
+		else {
+			const int set_id1 = node_set_id[node1];
+			const int set_id2 = node_set_id[node2];
+
+			for (auto &node : node_sets[set_id2]) {
+				node_sets[set_id1].insert(node);
+				node_set_id[node] = set_id1;
+			}
+			node_sets[set_id2].clear();
+		}
+	}
+
+	return weight_saved; // 259679
+}
+
 
 /* In the game of darts a player throws three darts at a target board which
 is split into twenty equal sized sections numbered one to twenty.

@@ -2,6 +2,8 @@
 #include <vector>
 #include <algorithm> // std::min
 #include <stdlib.h> // abs 
+#include <utility> // std::make_pair
+#include <queue>
 
 #include "ifstream_with_path.h"
 #include "roman_numeral_helper.h"
@@ -27,17 +29,14 @@ a 31K text file containing a 80 by 80 matrix, from the top left to the bottom
 right by only moving right and down.*/
 int q81() {
 	const int max_width = 80;
-	std::vector<std::vector<int> > matrix;
+	std::vector<int> row(max_width, 0);
+	std::vector<std::vector<int> > matrix(max_width, row);
 
 	ifstream_with_path fin("Problem81.txt");
 	for (int i = 0; i < max_width; ++i) {
-		std::vector<int> row;
-		int n;
 		for (int j = 0; j < max_width; ++j) {
-			fin >> n;
-			row.push_back(n);
+			fin >> matrix[i][j];
 		}
-		matrix.push_back(row);
 	}
 	fin.close();
 
@@ -84,17 +83,14 @@ a 31K text file containing a 80 by 80 matrix, from the left column to the right 
 int q82() {
 
 	const int max_width = 80;
-	std::vector<std::vector<int> > matrix;
+	std::vector<int> row(max_width, 0);
+	std::vector<std::vector<int> > matrix(max_width, row);
 
 	ifstream_with_path fin("Problem82.txt");
 	for (int i = 0; i < max_width; ++i) {
-		std::vector<int> row;
-		int n;
 		for (int j = 0; j < max_width; ++j) {
-			fin >> n;
-			row.push_back(n);
+			fin >> matrix[i][j];
 		}
-		matrix.push_back(row);
 	}
 	fin.close();
 
@@ -149,6 +145,63 @@ int q82() {
 
 	return final_min_path; // 260324
 }
+
+
+/* In the 5 by 5 matrix below, the minimal path sum from the top left to the bottom right,
+by moving left, right, up, and down, is indicated in bold red and is equal to 2297.
+
+Find the minimal path sum, in matrix.txt, a 31K text file containing a 80 by 80 matrix,
+from the top left to the bottom right by moving left, right, up, and down. */
+int q83() {
+
+	const int max_width = 80;
+	std::vector<int> row(max_width, 0);
+	std::vector<std::vector<int> > matrix(max_width, row);
+
+	ifstream_with_path fin("Problem83.txt");
+	for (int i = 0; i < max_width; ++i) {
+		for (int j = 0; j < max_width; ++j) {
+			fin >> matrix[i][j];
+		}
+	}
+	fin.close();
+
+	std::vector<int> row2(max_width, INT32_MAX);
+	std::vector<std::vector<int> > min_path(max_width, row2);
+
+	// row, col, path sum
+	std::queue<std::tuple<int, int, int> > q({ std::make_tuple(0, 0, matrix[0][0]) });
+
+	while (!q.empty()) {
+		auto current = q.front();
+		q.pop();
+
+		const int i = std::get<0>(current); // row
+		const int j = std::get<1>(current); // col
+		const int path_sum = std::get<2>(current);
+
+		if (path_sum < min_path[i][j]) {
+			min_path[i][j] = path_sum;
+
+			// Decide whether we can move north, south, east and west
+			if (i - 1 >= 0) {
+				q.push(std::make_tuple(i - 1, j, path_sum + matrix[i - 1][j]));
+			}
+			if (i + 1 < max_width) {
+				q.push(std::make_tuple(i + 1, j, path_sum + matrix[i + 1][j]));
+			}
+			if (j - 1 >= 0) {
+				q.push(std::make_tuple(i, j - 1, path_sum + matrix[i][j - 1]));
+			}
+			if (j + 1 < max_width) {
+				q.push(std::make_tuple(i, j + 1, path_sum + matrix[i][j + 1]));
+			}
+		}
+	}
+
+	return min_path[max_width - 1][max_width - 1]; // 425185
+}
+
 
 /* In the game, Monopoly, the standard board is set up in the following way:
 
