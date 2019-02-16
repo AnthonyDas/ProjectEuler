@@ -215,5 +215,14 @@
     <ClInclude Include="..\..\MathsHelper\graph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Q191Q200.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Q161Q170.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Q131Q140.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

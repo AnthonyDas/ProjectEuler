@@ -314,8 +314,7 @@ Find the last ten digits of this prime number.*/
 long long int q97() {
 	const int digits_required = 10;
 
-	std::vector<int> binary;
-	base_helper::convert_decimal_to_base(7830457, 2, binary);
+	std::vector<int> binary = base_helper::convert_decimal_to_base(7830457, 2);
 
 	vector_int res(1), pow_2(2);
 	for (std::vector<int>::const_reverse_iterator rit = binary.rbegin(); rit != binary.rend(); ++rit) {

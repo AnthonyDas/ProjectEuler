@@ -4,7 +4,7 @@
 
 #include "dice_helper.h"
 #include "factors_helper.h"
-// #include "ifstream_with_path.h"
+#include "combinatorics_helper.h"
 // #include "prime_helper.h"
 
 //---------------------------------------------------------------
@@ -39,12 +39,10 @@ What is the probability that Pyramidal Pete beats Cubic Colin? Give your answer
 rounded to seven decimal places in the form 0.abcdefg */
 double q205() {
 	
-	std::map<int, int> pyramidal_totals;
-	dice_helper::total_counts(4, 9, pyramidal_totals);
+	std::map<int, int> pyramidal_totals = dice_helper::total_counts(4, 9);
 	const double pyramidal_total_occurences = pow(4, 9); // double for prob calc
 
-	std::map<int, int> cube_totals;
-	dice_helper::total_counts(6, 6, cube_totals);
+	std::map<int, int> cube_totals = dice_helper::total_counts(6, 6);
 	const double cube_total_occurences = pow(6, 6); // double for prob calc
 
 	double prob = 0.0;
@@ -115,4 +113,26 @@ long long int q206() {
 	}
 
 	return current; // 1389019170 1929374254627488900
+}
+
+
+/* A robot moves in a series of one-fifth circular arcs (72°),
+with a free choice of a clockwise or an anticlockwise arc for
+each step, but no turning on the spot.
+
+One of 70932 possible closed paths of 25 arcs starting northward is
+
+Given that the robot starts facing North, how many journeys of 70
+arcs in length can it take that return it, after the final arc,
+to its starting position? (Any arc may be traversed multiple times.) */
+int q208() {
+	const int arcs = 6;
+
+	int count = 0;
+
+	for (int i = 0; i <= arcs; i += 3) {
+		count += combinatorics_helper::combinations(arcs, i);
+	}
+
+	return count;
 }

@@ -198,7 +198,7 @@ The least value of n for which A(n) first exceeds ten is 17.
 Find the least value of n for which A(n) first exceeds one-million.*/
 int q129() {
 	// Consider the case of n = 7:
-	// k, mod 7
+	// k, R(k) mod 7 [noting that R(k) mod 7 = 10*R(k-1) + 1 mod 7]
 	// 1, 1
 	// 2, 11 = 4
 	// 3, 41 = 6
@@ -209,13 +209,13 @@ int q129() {
 
 	// We see that the mod 7 column gets to 0 when k = 6. Moreover, when k = 7,
 	// we see that the mod 7 value becomse 1 again, i.e. that the chain repeats:
-	// 1 -> 4 -> 6 -> 5 -> 9 -> 0 -> 1. We need this chain to be at least 1000000
-	// in length BEFORE it repeats which means that there must at least be 1000000
-	// possible mod n values. Therefore, n must be at least 1000000. 
+	// 1 -> 4 -> 6 -> 5 -> 9 -> 0 -> 1. We need this chain to be at least 1,000,000
+	// in length BEFORE it repeats which means that there must at least be 1,000,000
+	// possible mod n values. Therefore, n must be at least 1,000,000. 
 
-	const int target = 1000000;
+	const int target = 1'000'000;
 
-	int n = 999999, k = 0;
+	int n = (target - 1), k = 0;
 	while (k <= target) {
 
 		++n;

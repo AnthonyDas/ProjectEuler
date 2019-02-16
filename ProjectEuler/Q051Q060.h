@@ -9,7 +9,6 @@
 #include "ifstream_with_path.h"
 #include "combinatorics_helper.h"
 #include "poker_hand.h"
-#include "permutation_helper.h"
 #include "vector_int.h"
 #include "number_helper.h" 
 
@@ -39,8 +38,7 @@ int q51() {
 
 		if (prime_helper::is_prime(n)) {
 
-			std::map<int, unsigned int> digit_map;
-			permutation_helper::get_digit_map(digit_map, n);
+			std::map<int, unsigned int> digit_map = number_helper::get_digit_map(n);
 
 			for (std::map<int, unsigned int>::const_iterator it = digit_map.begin(); it != digit_map.end(); ++it) {
 				primes.clear();
@@ -119,14 +117,12 @@ int q52() {
 	while (true) { // Infinite loop
 		i += 9;
 
-		std::map<int, unsigned int> map_1;
-		permutation_helper::get_digit_map(map_1, i);
+		std::map<int, unsigned int> map_1 = number_helper::get_digit_map(i);
 		
 		bool perm = true;
 
 		for (int j = 2; j <= 6; ++j) {
-			std::map<int, unsigned int> map_2;
-			permutation_helper::get_digit_map(map_2, (j * i));
+			std::map<int, unsigned int> map_2 = number_helper::get_digit_map(j * i);
 
 			if (map_1 != map_2) {
 				perm = false;

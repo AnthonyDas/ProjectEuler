@@ -18,11 +18,13 @@
 #include "Q101Q110.h"
 #include "Q111Q120.h"
 #include "Q121Q130.h"
-
+#include "Q131Q140.h"
 #include "Q141Q150.h"
 #include "Q151Q160.h"
+#include "Q161Q170.h"
 #include "Q171Q180.h"
 #include "Q181Q190.h"
+#include "Q191Q200.h"
 
 #include "Q201Q210.h"
 #include "Q211Q220.h"
@@ -62,13 +64,11 @@ void runProblem(std::string problemId, const T &actual, const T &expected) {
 
 int main() {
 	// standard_out_logger::create();
+	standard_out_and_file_logger::create("C:\\OneDrive\\Git\\ProjectEuler\\ProjectEuler\\ProjectEuler.log");
 
-	// standard_out_and_file_logger::create("C:\\Users\\Anthony C J Das\\Documents\\Visual Studio 2017\\Projects\\ProjectEuler\\ProjectEuler\\ProjectEuler.log");
-	standard_out_and_file_logger::create("C:\\Users\\AnthonyDas\\Documents\\GitHub\\ProjectEuler\\ProjectEuler\\ProjectEuler.log");
-
-	runProblem("81", q81(), 427337);
-	runProblem("82", q82(), 260324);
-	runProblem("83", q83(), 425185);
+	runProblem("147", q147(), 0LL);
+	
+	// runProblem("186", q186(), 0);
 
 	/*
 	runProblem("1", q1(), 233168);
@@ -172,6 +172,7 @@ int main() {
 	runProblem("86", q86(), 1818);
 	runProblem("87", q87(), 1097343);
 	runProblem("89", q89(), 743);
+	runProblem("90", q90(), 1217);
 
 	runProblem("91", q91(), 14234);
 	runProblem("92", q92(), 8581146);
@@ -205,15 +206,26 @@ int main() {
 
 	runProblem("129", q129(), 1000023);
 	runProblem("130", q130(), 149253);
+	runProblem("131", q131(), 173);
 	runProblem("145", q145(), 608720);
 	
 	runProblem("151", q151(), round(0.46439878160109455 * 1000000) / 1000000); // 6 d.p.
+	runProblem("155", q155(), 3'857'447);
 
+	runProblem("162", q162(), std::string("3D58725572C62302"));
+	runProblem("166", q166(), 7130034);
+
+	runProblem("172", q172(), 227485267000992000);
 	runProblem("173", q173(), 1572729);
 	runProblem("174", q174(), 209566);
 
 	runProblem("179", q179(), 986262);
+
+
 	runProblem("187", q187(), 17427258);
+	runProblem("189", q189(), 10834893628237824);
+
+	runProblem("191", q191(), 1918080160);
 
 	runProblem("204", q204(), 2944730);
 	runProblem("205", q205(), round(0.57314407678298018 * 10000000) / 10000000); // 7 d.p.

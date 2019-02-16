@@ -323,24 +323,23 @@ int q47() {
 		// if (current % 1000 == 0) {std::cout << "Processing: " << current << std::endl;}
 
 		// Factors of four consecutive numbers
-		std::map<int, unsigned int> fact;
-		factors_helper::factorise(current, fact);
+		auto factors = factors_helper::factorise(current);
 
 		// Each number requires four distinct prime factors
 		const unsigned int factor_count = 4;
-		if (fact.size() != factor_count) { continue; }
+		if (factors.size() != factor_count) { continue; }
 
 		++current;
-		factors_helper::factorise(current, fact);
-		if (fact.size() != factor_count) { continue; }
+		factors = factors_helper::factorise(current);
+		if (factors.size() != factor_count) { continue; }
 		
 		++current;
-		factors_helper::factorise(current, fact);
-		if (fact.size() != factor_count) { continue; }
+		factors = factors_helper::factorise(current);
+		if (factors.size() != factor_count) { continue; }
 		
 		++current;
-		factors_helper::factorise(current, fact);
-		if (fact.size() != factor_count) { continue; }
+		factors = factors_helper::factorise(current);
+		if (factors.size() != factor_count) { continue; }
 
 		break;
 	}

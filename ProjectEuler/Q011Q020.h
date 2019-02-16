@@ -100,8 +100,7 @@ int q12() {
 		triangle += add;
 		++add;
 
-		std::map<int, unsigned int> factors;
-		factors_helper::factorise(triangle, factors);
+		auto factors = factors_helper::factorise(triangle);
 
 		divisors = 1;
 		for (std::map<int, unsigned int>::const_iterator it = factors.begin(); it != factors.end(); ++it) {

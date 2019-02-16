@@ -24,20 +24,18 @@ long long int q231() {
 
 	for (int n = 15000001; n <= 20000000; ++n) {
 
-		std::map<int, unsigned int> factors;
-		factors_helper::factorise(n, factors);
+		auto factors = factors_helper::factorise(n);
 
-		for (std::map<int, unsigned int>::const_iterator it = factors.begin(); it != factors.end(); ++it) {
+		for (auto it = factors.begin(); it != factors.end(); ++it) {
 			numerator_factors[it->first] += it->second;
 		}
 	}
 
 	for (int n = 2; n <= 5000000; ++n) {
 
-		std::map<int, unsigned int> factors;
-		factors_helper::factorise(n, factors);
+		auto factors = factors_helper::factorise(n);
 
-		for (std::map<int, unsigned int>::const_iterator it = factors.begin(); it != factors.end(); ++it) {
+		for (auto it = factors.begin(); it != factors.end(); ++it) {
 			denominator_factors[it->first] += it->second;
 		}
 	}
@@ -51,7 +49,7 @@ long long int q231() {
 	for (std::map<int, unsigned int>::const_iterator it = numerator_factors.begin(); it != numerator_factors.end(); ++it) {
 		sum += (it->first * it->second);
 	}
-	return sum; // 7526965179680
+	return sum; // 7'526'965'179'680
 }
 
 /*Let f(N) be the number of points with integer coordinates

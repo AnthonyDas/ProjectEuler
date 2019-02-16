@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
+#include <set>
 #include <numeric> // std::accumulate
 
-// #include "base_helper.h"
+#include "factors_helper.h"
 // #include "ifstream_with_path.h"
 // #include "prime_helper.h"
 
@@ -102,4 +103,64 @@ double q151() {
 	recursive_next_batch(sheet_counts, remaining_batches, prob_num, prob_den, single_sheet_count, single_sheet_expectation);
 
 	return round(single_sheet_expectation * 1000000) / 1000000; // 6 d.p.
+}
+
+
+/* An electric circuit uses exclusively identical capacitors of the same value C. 
+The capacitors can be connected in series or in parallel to form sub-units, which
+can then be connected in series or in parallel with other capacitors or other sub-units
+to form larger sub-units, and so on up to a final circuit.
+
+Using this simple procedure and up to n identical capacitors, we can make circuits
+having a range of different total capacitances. For example, using up to n=3 capacitors
+of 60 muF each, we can obtain the following 7 distinct total capacitance values:
+
+If we denote by D(n) the number of distinct total capacitance values we can obtain when
+using up to n equal-valued capacitors and the simple procedure described above,
+we have: D(1)=1, D(2)=3, D(3)=7 ...
+
+Find D(18).
+
+Reminder: When connecting capacitors C1, C2 etc in parallel, the total capacitance
+is CT = C1 + C2 +..., whereas when connecting them in series, the overall capacitance
+is given by: 1/CT = 1/C1 + 1/C2 + ... */
+
+inline fraction<int> in_series(fraction<int> a, fraction<int> b) {
+	return (a.reciprocal() + b.reciprocal()).reciprocal();
+}
+
+inline fraction<int> in_parallel(const fraction<int> &a, const fraction<int> &b) {
+	return a + b;
+}
+
+int q155() {
+	const int limit = 18;
+
+	// Map: Total capacitors, possible capacitances
+	std::map<int, std::set<fraction<int>>> options; 
+	options[1].insert(60);
+
+	for (int i = 2; i <= limit; ++i) { // Total capacitors
+		for (int j = 1; j <= (i / 2); ++j) { // Group 1 size, Group 2 size will be (i - j)
+			// std::cout << "Total capacitors: " << i << ", group size: " << j << std::endl;
+
+			// Brute search for combining Group 1 and Group 2
+			for (auto &o1 : options[j]) {
+				for (auto &o2 : options[i - j]) {
+					options[i].insert(in_series(o1, o2));
+					options[i].insert(in_parallel(o1, o2));
+				}
+			}
+
+		}
+	}
+
+	std::set<fraction<int>> set;
+	for (auto &pair : options) {
+		for (auto &f : pair.second) {
+			set.insert(f);
+		}
+	}
+
+	return (int)(set.size()); // 3'857'447
 }

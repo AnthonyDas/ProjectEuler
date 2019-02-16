@@ -318,3 +318,31 @@ long long int q119() {
 
 	return numbers[limit - 1];
 }
+
+
+int pow_mod(const int &base, const int &exp, const int &mod) {
+	int res = base;
+
+	return 0;
+}
+
+/* Let r be the remainder when (a-1)^n + (a+1)^n is divided by a^2.
+
+For example, if a = 7 and n = 3, then r = 42: 6^3 + 8^3 = 728 = 42 mod 49.
+And as n varies, so too will r, but for a = 7 it turns out that r_max = 42.
+
+For 3 <= a <= 1000, find SUM(r_max). */
+int q120() {
+
+	int a = 7, r_max = 0;
+	for (int n = 0; n < 100; ++n) {
+		int a2 = a * a;
+		int r = (pow_mod(a - 1, n, a2) + pow_mod(a + 1, n, a2)) % a2;
+
+		std::cout << a << " " << n << " " << r << std::endl;
+		r_max = std::max(r_max, r);
+	}
+
+
+	return 0;
+}

@@ -8,6 +8,8 @@
 #include "sqrt_cont_frac.h"
 #include "magic_five_gon.h"
 #include "factors_helper.h"
+#include "number_helper.h"
+#include "permutation_helper.h"
 
 //---------------------------------------------------------------
 // Copyright © (2016) Anthony Das
@@ -105,8 +107,6 @@ long long int q62() {
 	// Stores digit maps and corresponding cubes
 	std::map<std::map<int, unsigned int>, std::vector<long long int> > cube_digit_map;
 
-	std::map<int, unsigned int> digit_map;
-
 	long long int base = 0, smallest = 0;
 
 	while (smallest == 0) {
@@ -114,9 +114,9 @@ long long int q62() {
 		// if (base % 1000 == 0) {cout << "Processing [" << base << "]..." << endl;}
 
 		long long int cube = base * base * base;
-		permutation_helper::get_digit_map(digit_map, cube);
+		auto digit_map = number_helper::get_digit_map(cube);
 
-		std::map<std::map<int, unsigned int>, std::vector<long long int> >::iterator it = cube_digit_map.find(digit_map);
+		auto it = cube_digit_map.find(digit_map);
 		if (it == cube_digit_map.end()) {
 			std::vector<long long int> new_vec;
 			new_vec.push_back(cube);

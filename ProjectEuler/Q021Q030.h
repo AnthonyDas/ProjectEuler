@@ -407,13 +407,12 @@ int q29() {
 
 	int count = 0;
 	for (int a = 2; a <= limit; ++a) {
-		std::map<int, unsigned int> factors;
-		factors_helper::factorise(a, factors);
+		auto factors = factors_helper::factorise(a);
 
 		// Calculate the gdc of the powers within the prime factorisation.
 		// This will determine whether "a" is in fact a square, cube etc.
 		unsigned int gcd = factors.begin()->second;
-		for (std::map<int, unsigned int>::const_iterator it = ++factors.begin(); it != factors.end(); ++it) {
+		for (auto it = ++factors.begin(); it != factors.end(); ++it) {
 			gcd = greatest_common_divisor_helper::gcd(gcd, it->second);
 		}
 

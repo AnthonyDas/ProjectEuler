@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <unordered_set>
+#include <algorithm> // sort
 
 #include "pan_digit_helper.h"
 #include "ifstream_with_path.h"
@@ -103,13 +104,13 @@ and given in matrix form, find the maximum saving which can be achieved by
 removing redundant edges whilst ensuring that the network remains connected. */
 int q107() {
 	const int size = 40;
-	int	edge_count = 0, row = 0, col = 0, weight;
+	int	row = 0, col = 0, weight;
 
 	std::vector<std::tuple<int, int, int> > edges;
 
 	ifstream_with_path fin("Problem107.txt");
 	while (fin >> weight) {
-		// Edges have non-zero weight in the matrix and don't doulbe count edges.
+		// Edges have non-zero weight in the matrix and don't double count edges.
 		// E.g. Matrix[i][j] is the same as Matrix[j][i]
 		if (weight && row <= col) {
 			edges.push_back(std::make_tuple(row, col, weight)); // node1, node2, weight
@@ -206,9 +207,7 @@ int q109() {
 	int count = 0;
 
 	for (int target = 2; target < 100; ++target) {
-		int ways = darts_helper::check_out_count(target);
-		// std::cout << target << " " << ways << std::endl;
-		count += ways;
+		count += darts_helper::check_out_count(target);
 	}
 
 	return count; // 38182

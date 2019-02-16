@@ -62,8 +62,7 @@ long long int q357() {
 	for (int n = 2; n < limit; n += 4) {
 		// if (n % 1000000 == 2) { std::cout << n << " " << sum << std::endl; }
 
-		std::map<int, unsigned int> factors;
-		factors_helper::factorise(n, factors);
+		auto factors = factors_helper::factorise(n);
 
 		if (recursive_check_divisors_prime(factors.begin(), factors.end(), n, 1)) {
 			sum += n;

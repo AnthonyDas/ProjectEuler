@@ -4,6 +4,7 @@
 #include <set>
 
 #include "prime_helper.h" 
+#include "factorial_helper.h"
 #include "pan_digit_helper.h" 
 #include "base_helper.h" 
 #include "palindrome_helper.h" 
@@ -233,16 +234,9 @@ int q34() {
 	// factorial sum for an 8 digit number, corresponding to
 	// (99,999,999), is only (2,903,040) which is only 7 digits.
 	// Hence we only need to consider up to 7 digit numbers.
-	const int limit = 7 * 362880;
+	const int limit = 7 * 362'880;
 
-	// Pre-calculate factorials
-	std::vector<int> factorials;
-	factorials.push_back(1); // 0! Note zero factorial is 1
-	factorials.push_back(1); // 1!
-	for (int i = 2; i < 10; ++i) {
-		factorials.push_back(factorials[i - 1] * i);
-		// cout << "[" << i << "]" << " factorial [" << factorials[i] << "]" << endl;
-	}
+	std::vector<int> factorials = factorial_helper::factorials(9);
 
 	int total = 0;
 	for (int n = 10; n <= limit; ++n) { // Begin at 10 as we need a sum
@@ -251,7 +245,7 @@ int q34() {
 		int fact_sum = 0, remaining_digits = n;
 		while (remaining_digits != 0) {
 			int digit = remaining_digits % 10;
-			remaining_digits = remaining_digits / 10;
+			remaining_digits /= 10;
 			fact_sum += factorials[digit];
 		}
 
@@ -310,13 +304,14 @@ palindromic number, in either base, may not include leading zeros.) */
 int q36() {
 	int sum = 0;
 
-	for (int i = 1; i < 1000000; ++i) {
-		std::vector<int> binary;
-		base_helper::convert_decimal_to_base(i, 2, binary);
+	for (int i = 1; i < 1'000'000; ++i) {
+		if (palindrome_helper::is_palindrome(i)) {
+			std::vector<int> binary = base_helper::convert_decimal_to_base(i, 2);
 
-		if (palindrome_helper::is_palindrome(i) && palindrome_helper::is_palindrome(binary)) {
-			// std::cout << "Found [" << i << "] base 10, [" << baseTwo << "] base 2" << endl;
-			sum += i;
+			if (palindrome_helper::is_palindrome(binary)) {
+				// std::cout << "Found [" << i << "] base 10, [" << baseTwo << "] base 2" << endl;
+				sum += i;
+			}
 		}
 	}
 

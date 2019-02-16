@@ -11,6 +11,60 @@
 // https://projecteuler.net
 
 
+void recursive_selection_172(long long int &count, std::vector<int> &selection,
+	const int &index, const int &digits_remaining, const int &max_digit_occurrences) {
+
+	// If we have selected 18-digits, determine how many different
+	// 18-digit numbers can be made with the given selection
+	if (!digits_remaining) {
+
+		static std::vector<int> fact({ 1, 1, 2, 6 }); // 0!, 1!, 2!, 3!
+
+		// Select the leading digit (which must be non zero)
+		for (size_t i = 1; i < selection.size(); ++i) {
+			if (selection[i]) {
+				// Ways to arrange remaining 17 digits = 17!
+				long long int ways = 355'687'428'096'000; 
+				
+				for (size_t j = 0; j < selection.size(); ++j) {
+					if (j == i) {
+						ways /= fact[selection[j] - 1]; // Used 1 for leading digit
+					}
+					else {
+						ways /= fact[selection[j]];
+					}
+				}
+				count += ways;
+			}
+		}
+
+		return;
+	}
+
+	// Decide how many times digit "index" occurs
+	const int start = std::max(0, digits_remaining - (index * max_digit_occurrences));
+	const int end = std::min(max_digit_occurrences, digits_remaining);
+	for (int i = start; i <= end; ++i) {
+		selection[index] = i;
+		recursive_selection_172(count, selection, (index - 1), (digits_remaining - i), max_digit_occurrences);
+		selection[index] = 0;
+	}
+}
+
+/* How many 18-digit numbers n (without leading zeros) are there
+such that no digit occurs more than three times in n? */
+long long int q172() {
+	long long int count = 0;
+	const int digits_required = 18;
+	const int max_digit_occurrences = 3;
+
+	std::vector<int> selection(10, 0);
+	recursive_selection_172(count, selection, (int)(selection.size() - 1), digits_required, max_digit_occurrences);
+
+	return count; // 227'485'267'000'992'000
+}
+
+
 /*We shall define a square lamina to be a square outline with a square "hole"
 so that the shape possesses vertical and horizontal symmetry. For example,
 using exactly thirty-two square tiles we can form two different square laminae:
@@ -112,11 +166,10 @@ int q179() {
 	for (int n = 2; n <= limit; ++n) {
 		// if (n % 100000 == 0) { std::cout << n << std::endl; }
 
-		std::map<int, unsigned int> fact;
-		factors_helper::factorise(n, fact);
+		auto factors = factors_helper::factorise(n);
 
 		int fact_count = 1;
-		for (std::map<int, unsigned int>::const_iterator it = fact.begin(); it != fact.end(); ++it) {
+		for (auto it = factors.begin(); it != factors.end(); ++it) {
 			fact_count *= (it->second + 1);
 		}
 

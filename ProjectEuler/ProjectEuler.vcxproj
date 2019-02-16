@@ -72,6 +72,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>C:\Users\AnthonyDas\Documents\GitHub\MathsHelper;C:\Users\AnthonyDas\Documents\GitHub\Common;$(IncludePath)</IncludePath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\OneDrive\Git\Common;C:\OneDrive\Git\MathsHelper;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -88,6 +91,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -174,10 +178,13 @@
     <ClInclude Include="Q101Q110.h" />
     <ClInclude Include="Q111Q120.h" />
     <ClInclude Include="Q121Q130.h" />
+    <ClInclude Include="Q131Q140.h" />
     <ClInclude Include="Q141Q150.h" />
     <ClInclude Include="Q151Q160.h" />
+    <ClInclude Include="Q161Q170.h" />
     <ClInclude Include="Q171Q180.h" />
     <ClInclude Include="Q181Q190.h" />
+    <ClInclude Include="Q191Q200.h" />
     <ClInclude Include="Q201Q210.h" />
     <ClInclude Include="Q211Q220.h" />
     <ClInclude Include="Q231Q240.h" />

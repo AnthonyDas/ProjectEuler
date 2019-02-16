@@ -59,7 +59,7 @@ int q2_quick() {
 // The prime factors of 13195 are 5, 7, 13 and 29.
 // What is the largest prime factor of the number 600851475143?
 long long int q3() {
-	long long int n = 600851475143, last_prime_factor = -1;
+	long long int n = 600'851'475'143, last_prime_factor = -1;
 
 	if (n % 2 == 0) {
 		last_prime_factor = 2;
@@ -87,10 +87,9 @@ long long int q3() {
 }
 
 long long int q3_quick() {
-	long long int n = 600851475143;
+	long long int n = 600'851'475'143;
 
-	std::map<long long int, unsigned int> factors;
-	factors_helper::factorise(n, factors);
+	auto factors = factors_helper::factorise(n);
 
 	return factors.rbegin()->first;
 }
